@@ -46,6 +46,7 @@ export const PROJECTS: Project[] = [
       'Deploy backend Render, frontend Vercel với PostgreSQL trên Neon',
     ],
     github: 'https://github.com/TrungHuy242/clinic-appointment-system',
+    liveUrl: 'https://clinic-appointment-system-amber.vercel.app/',
     image: '/images/projects/clinic.jpg',
     gridClass: 'col-span-12 md:col-span-5',
   },
