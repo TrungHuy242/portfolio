@@ -18,15 +18,18 @@ const Hero = () => {
             </div>
 
             <h1 className="hero-title font-display text-[48px] sm:text-[64px] md:text-[100px] lg:text-[120px] xl:text-[150px] leading-[0.85] font-black tracking-tighter mix-blend-difference">
-              TRUNG<br />
-              <span className="text-stroke hover:text-stroke-cyan transition-colors duration-500">HUY</span>
+              TRUNG
+              <br />
+              <span className="text-stroke hover:text-stroke-cyan transition-colors duration-500">
+                HUY
+              </span>
             </h1>
 
             <div className="mt-6 sm:mt-8 md:mt-12 max-w-md hero-desc opacity-0 transform translate-y-8">
               <p className="text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed">
                 {PERSONAL_INFO.role}{' '}
-                <span className="italic text-accent font-medium">crafting solutions</span>{' '}
-                with ReactJS, Django & modern web technologies.
+                <span className="italic text-accent font-medium">crafting solutions</span> with
+                ReactJS, Django & modern web technologies.
               </p>
               <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4">
                 <a
@@ -58,8 +61,12 @@ const Hero = () => {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-4 sm:p-6 lg:p-8">
-                <p className="text-[8px] sm:text-[10px] text-accent font-bold tracking-widest mb-1 sm:mb-2 uppercase">Featured Work</p>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-display font-bold">{PROJECTS[0].title}</h3>
+                <p className="text-[8px] sm:text-[10px] text-accent font-bold tracking-widest mb-1 sm:mb-2 uppercase">
+                  Featured Work
+                </p>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-display font-bold">
+                  {PROJECTS[0].title}
+                </h3>
               </div>
             </div>
           </div>
@@ -67,10 +74,16 @@ const Hero = () => {
           {/* Secondary info card */}
           <div className="hero-card-2 hidden md:block absolute bottom-[5%] lg:bottom-[15%] left-[-5%] lg:left-[-20%] w-[220px] lg:w-[260px] aspect-square bg-surface/80 backdrop-blur-xl border border-white/10 p-4 lg:p-6 shadow-2xl z-20 opacity-0 transform -translate-x-12 -rotate-6">
             <div className="h-full flex flex-col justify-between">
-              <div className="text-3xl lg:text-4xl text-white/5 font-bold uppercase font-display">02</div>
+              <div className="text-3xl lg:text-4xl text-white/5 font-bold uppercase font-display">
+                02
+              </div>
               <div>
-                <h3 className="text-base lg:text-lg font-bold font-display mb-2">{PROJECTS[1].title}</h3>
-                <p className="text-[10px] lg:text-xs text-white/50 mb-3 lg:mb-4 leading-relaxed">{PROJECTS[1].description}</p>
+                <h3 className="text-base lg:text-lg font-bold font-display mb-2">
+                  {PROJECTS[1].title}
+                </h3>
+                <p className="text-[10px] lg:text-xs text-white/50 mb-3 lg:mb-4 leading-relaxed">
+                  {PROJECTS[1].description}
+                </p>
                 <div className="w-8 h-[1px] bg-accent" />
               </div>
             </div>
@@ -79,7 +92,10 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 sm:bottom-8 left-4 sm:left-6 md:left-12 flex items-center gap-3 sm:gap-4 text-[10px] tracking-[0.3em] font-medium text-white/40 uppercase" aria-hidden="true">
+      <div
+        className="absolute bottom-6 sm:bottom-8 left-4 sm:left-6 md:left-12 flex items-center gap-3 sm:gap-4 text-[10px] tracking-[0.3em] font-medium text-white/40 uppercase"
+        aria-hidden="true"
+      >
         <div className="w-[1px] h-8 sm:h-12 bg-gradient-to-b from-white/40 to-transparent" />
         <span className="rotate-90 origin-left translate-y-4">Scroll</span>
       </div>

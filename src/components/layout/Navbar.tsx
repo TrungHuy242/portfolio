@@ -12,7 +12,10 @@ const Navbar = () => {
       aria-label="Main navigation"
     >
       {/* Brand */}
-      <a href="#" className="font-display text-xl sm:text-2xl font-bold tracking-tighter hover-target">
+      <a
+        href="#"
+        className="font-display text-xl sm:text-2xl font-bold tracking-tighter hover-target"
+      >
         T<span className="text-accent">.</span>HUY
       </a>
 
@@ -42,7 +45,7 @@ const Navbar = () => {
       <button
         className="md:hidden p-2 hover-target min-w-[44px] min-h-[44px] flex items-center justify-center"
         onClick={() => setMobileOpen(!mobileOpen)}
-        aria-label={mobileOpen ? "Đóng menu" : "Mở menu"}
+        aria-label={mobileOpen ? 'Đóng menu' : 'Mở menu'}
         aria-expanded={mobileOpen}
       >
         {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -50,7 +53,7 @@ const Navbar = () => {
 
       {/* Mobile menu overlay */}
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-black backdrop-blur-xl z-50 flex flex-col items-center justify-center gap-6 sm:gap-8 pb-safe">
+        <div className="md:hidden fixed inset-0 top-16 bg-black backdrop-blur-xl z-50 flex flex-col items-center justify-center gap-6 sm:gap-8 pb-[env(safe-area-inset-bottom)]">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}

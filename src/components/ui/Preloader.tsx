@@ -17,31 +17,39 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
       opacity: 1,
       stagger: 0.04,
       duration: 0.8,
-      ease: "power4.out",
+      ease: 'power4.out',
       delay: 0.1,
     })
-    .to('.preloader-bar', {
-      scaleX: 1,
-      duration: 0.6,
-      ease: "power2.inOut",
-    }, "-=0.3")
-    .to('.preloader-char', {
-      y: -50,
-      opacity: 0,
-      stagger: 0.02,
-      duration: 0.4,
-      ease: "power2.in",
-    })
-    .to('.preloader-bar', {
-      scaleY: 0,
-      opacity: 0,
-      duration: 0.3,
-    }, "-=0.3")
-    .to(containerRef.current, {
-      yPercent: -100,
-      duration: 0.8,
-      ease: "expo.inOut",
-    });
+      .to(
+        '.preloader-bar',
+        {
+          scaleX: 1,
+          duration: 0.6,
+          ease: 'power2.inOut',
+        },
+        '-=0.3',
+      )
+      .to('.preloader-char', {
+        y: -50,
+        opacity: 0,
+        stagger: 0.02,
+        duration: 0.4,
+        ease: 'power2.in',
+      })
+      .to(
+        '.preloader-bar',
+        {
+          scaleY: 0,
+          opacity: 0,
+          duration: 0.3,
+        },
+        '-=0.3',
+      )
+      .to(containerRef.current, {
+        yPercent: -100,
+        duration: 0.8,
+        ease: 'expo.inOut',
+      });
   });
 
   return (
@@ -51,7 +59,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
       aria-hidden="true"
     >
       <div className="overflow-hidden flex gap-1 mb-8">
-        {"TRUNGHUY".split("").map((c, i) => (
+        {'TRUNGHUY'.split('').map((c, i) => (
           <span
             key={i}
             className="preloader-char text-5xl md:text-8xl font-black font-display translate-y-full opacity-0"

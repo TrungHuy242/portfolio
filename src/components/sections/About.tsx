@@ -1,6 +1,9 @@
-import { PERSONAL_INFO, EDUCATION } from '@/data/portfolio';
+import { useState } from 'react';
+import { PERSONAL_INFO, EDUCATION, PROJECTS } from '@/data/portfolio';
 
 const About = () => {
+  const [portraitError, setPortraitError] = useState(false);
+
   return (
     <section
       id="about"
@@ -13,22 +16,19 @@ const About = () => {
           <div className="about-img-wrapper relative w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] aspect-[3/4] border border-white/10 p-2 transform -rotate-3 overflow-hidden group">
             <div className="w-full h-full relative overflow-hidden bg-[#111]">
               {/* Portrait photo — place your photo at public/images/portrait.jpg */}
-              <img
-                src="/images/portrait.jpg"
-                alt={`Ảnh chân dung ${PERSONAL_INFO.name}`}
-                className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                loading="lazy"
-                onError={(e) => {
-                  // Fallback to initials if image not found
-                  const target = e.currentTarget;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    parent.classList.add('flex', 'items-center', 'justify-center');
-                    parent.innerHTML = '<span class="text-6xl font-display font-black text-white/20">TH</span>';
-                  }
-                }}
-              />
+              {portraitError ? (
+                <div className="flex h-full w-full items-center justify-center">
+                  <span className="text-6xl font-display font-black text-white/20">TH</span>
+                </div>
+              ) : (
+                <img
+                  src="/images/portrait.jpg"
+                  alt={`Ảnh chân dung ${PERSONAL_INFO.name}`}
+                  className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  loading="lazy"
+                  onError={() => setPortraitError(true)}
+                />
+              )}
             </div>
 
             {/* Spinning badge */}
@@ -40,29 +40,40 @@ const About = () => {
 
         {/* Text content */}
         <div className="col-span-12 md:col-span-7 flex flex-col justify-center pt-8 sm:pt-12 md:pt-0">
-          <h2 className="text-xs text-accent font-bold tracking-[0.3em] uppercase mb-4 sm:mb-6">Who am I</h2>
+          <h2 className="text-xs text-accent font-bold tracking-[0.3em] uppercase mb-4 sm:mb-6">
+            Who am I
+          </h2>
           <h3 className="about-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black tracking-tight leading-[1.1] mb-6 sm:mb-8">
-            BUILDING THE BRIDGE<br />
+            BUILDING THE BRIDGE
+            <br />
             BETWEEN <span className="text-stroke">IDEAS</span> &<br />
             REALITY.
           </h3>
           <p className="about-text text-sm sm:text-base md:text-lg text-white/60 font-light leading-relaxed max-w-2xl mb-6 sm:mb-8">
-            {PERSONAL_INFO.bio}
+            {PERSONAL_INFO.bioVi}
           </p>
 
           {/* Key stats */}
           <div className="grid grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 max-w-md">
             <div>
-              <div className="text-2xl sm:text-3xl font-display font-black text-accent">3+</div>
-              <div className="text-[10px] sm:text-xs text-white/40 uppercase tracking-wider mt-1">Projects</div>
+              <div className="text-2xl sm:text-3xl font-display font-black text-accent">
+                {PROJECTS.length}
+              </div>
+              <div className="text-[10px] sm:text-xs text-white/40 uppercase tracking-wider mt-1">
+                Projects
+              </div>
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-display font-black text-accent">4th</div>
-              <div className="text-[10px] sm:text-xs text-white/40 uppercase tracking-wider mt-1">Year Student</div>
+              <div className="text-[10px] sm:text-xs text-white/40 uppercase tracking-wider mt-1">
+                Year Student
+              </div>
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-display font-black text-accent">Lead</div>
-              <div className="text-[10px] sm:text-xs text-white/40 uppercase tracking-wider mt-1">Team Role</div>
+              <div className="text-[10px] sm:text-xs text-white/40 uppercase tracking-wider mt-1">
+                Team Role
+              </div>
             </div>
           </div>
 
@@ -71,7 +82,9 @@ const About = () => {
             <div className="w-2 h-2 bg-accent-2 rounded-full flex-shrink-0" />
             <div className="min-w-0">
               <div className="text-xs sm:text-sm font-bold truncate">{EDUCATION.school}</div>
-              <div className="text-[10px] sm:text-xs text-white/50">{EDUCATION.major} • {EDUCATION.period}</div>
+              <div className="text-[10px] sm:text-xs text-white/50">
+                {EDUCATION.major} • {EDUCATION.period}
+              </div>
             </div>
           </div>
         </div>

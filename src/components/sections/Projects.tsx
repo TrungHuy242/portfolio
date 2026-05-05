@@ -22,7 +22,10 @@ const Projects = () => {
         {/* Project grid */}
         <div className="grid grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10 sm:gap-y-12 md:gap-y-24">
           {PROJECTS.map((proj) => (
-            <article key={proj.id} className={`project-card group col-span-12 ${proj.gridClass.replace('col-span-12 ', '')}`}>
+            <article
+              key={proj.id}
+              className={`project-card group col-span-12 ${proj.gridClass.replace('col-span-12 ', '')}`}
+            >
               {/* Image */}
               <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#111] mb-4 sm:mb-6">
                 <img
@@ -97,12 +100,20 @@ const Projects = () => {
               <div className="flex justify-between items-start gap-3 sm:gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 sm:gap-3 mb-1.5 sm:mb-2 flex-wrap">
-                    <span className="text-[10px] sm:text-xs text-accent font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase">{proj.role}</span>
+                    <span className="text-[10px] sm:text-xs text-accent font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                      {proj.role}
+                    </span>
                     <span className="text-[10px] sm:text-xs text-white/30">•</span>
-                    <span className="text-[10px] sm:text-xs text-white/40 font-mono">{proj.period}</span>
+                    <span className="text-[10px] sm:text-xs text-white/40 font-mono">
+                      {proj.period}
+                    </span>
                   </div>
-                  <h4 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-2 sm:mb-3">{proj.title}</h4>
-                  <p className="text-sm sm:text-base text-white/60 font-light mb-3 sm:mb-4">{proj.description}</p>
+                  <h4 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-2 sm:mb-3">
+                    {proj.title}
+                  </h4>
+                  <p className="text-sm sm:text-base text-white/60 font-light mb-3 sm:mb-4">
+                    {proj.description}
+                  </p>
 
                   {/* Tech tags */}
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">

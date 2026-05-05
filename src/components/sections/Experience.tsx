@@ -22,6 +22,7 @@ const Experience = () => {
 
   return (
     <section
+      id="experience"
       className="py-20 sm:py-32 px-4 sm:px-6 md:px-12 relative z-10"
       aria-label="Experience & Education"
     >
@@ -29,12 +30,15 @@ const Experience = () => {
         {/* Left sticky column */}
         <div className="col-span-12 lg:col-span-4 relative">
           <div className="lg:sticky lg:top-32">
-            <h2 className="text-[10px] sm:text-xs text-accent font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-6">Journey</h2>
+            <h2 className="text-[10px] sm:text-xs text-accent font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-6">
+              Journey
+            </h2>
             <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black uppercase leading-none overflow-hidden pb-3 sm:pb-4">
               <span className="exp-title inline-block">Experience</span>
             </h3>
             <p className="text-white/50 mt-4 sm:mt-6 max-w-sm text-xs sm:text-sm leading-relaxed">
-              Hành trình học tập và phát triển kỹ năng thông qua các dự án thực tế và hoạt động nhóm.
+              Hành trình học tập và phát triển kỹ năng thông qua các dự án thực tế và hoạt động
+              nhóm.
             </p>
 
             {/* Education card */}
@@ -45,7 +49,9 @@ const Experience = () => {
               </div>
               <div className="text-base sm:text-lg font-display font-bold">{EDUCATION.major}</div>
               <div className="text-xs sm:text-sm text-white/50 mt-1">{EDUCATION.school}</div>
-              <div className="text-[10px] sm:text-xs text-accent font-mono mt-2">{EDUCATION.period}</div>
+              <div className="text-[10px] sm:text-xs text-accent font-mono mt-2">
+                {EDUCATION.period}
+              </div>
             </div>
           </div>
         </div>
@@ -72,11 +78,19 @@ const Experience = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 md:gap-8 mb-4 sm:mb-6">
-                <div className="text-accent text-xs sm:text-sm md:text-lg font-bold font-mono tracking-wider">{item.year}</div>
-                <h4 className="text-xl sm:text-2xl md:text-3xl font-display font-bold">{item.title}</h4>
+                <div className="text-accent text-xs sm:text-sm md:text-lg font-bold font-mono tracking-wider">
+                  {item.year}
+                </div>
+                <h4 className="text-xl sm:text-2xl md:text-3xl font-display font-bold">
+                  {item.title}
+                </h4>
               </div>
-              <p className="text-sm sm:text-base md:text-lg text-white/50 mb-4 sm:mb-6 uppercase tracking-wider sm:tracking-widest">{item.subtitle}</p>
-              <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed font-light">{item.description}</p>
+              <p className="text-sm sm:text-base md:text-lg text-white/50 mb-4 sm:mb-6 uppercase tracking-wider sm:tracking-widest">
+                {item.subtitle}
+              </p>
+              <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed font-light">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
