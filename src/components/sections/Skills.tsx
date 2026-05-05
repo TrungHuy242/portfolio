@@ -22,7 +22,10 @@ const FloatingSkills = () => {
         });
       });
 
-      // Parallax mouse movement
+      // Parallax mouse movement — only on desktop
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (isMobile) return;
+
       const wrappers = gsap.utils.toArray<HTMLElement>('.skill-wrapper');
       const xTo = wrappers.map(w => gsap.quickTo(w, "x", { duration: 1, ease: "power3" }));
       const yTo = wrappers.map(w => gsap.quickTo(w, "y", { duration: 1, ease: "power3" }));
@@ -64,21 +67,25 @@ const FloatingSkills = () => {
   return (
     <section
       id="skills"
-      className="py-32 md:py-48 px-6 md:px-12 border-y border-white/5 bg-black/40 relative z-10 overflow-hidden text-center"
+      className="py-20 sm:py-32 md:py-48 px-4 sm:px-6 md:px-12 border-y border-white/5 bg-black/40 relative z-10 overflow-hidden text-center"
       ref={container}
       aria-label="Skills"
     >
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/2 left-1/2 w-[300px] sm:w-[400px] md:w-[600px] h-[300px] sm:h-[400px] md:h-[600px] bg-accent/5 rounded-full blur-[80px] sm:blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true" />
 
-      <h2 className="text-xs text-accent font-bold tracking-[0.3em] uppercase mb-4 relative z-10">Tech Stack</h2>
-      <p className="text-sm text-white/40 mb-16 relative z-10">Hover to explore</p>
+      <h2 className="text-[10px] sm:text-xs text-accent font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4 relative z-10">Tech Stack</h2>
+      <p className="text-xs sm:text-sm text-white/40 mb-8 sm:mb-12 md:mb-16 relative z-10">Hover to explore</p>
 
-      <div className="max-w-[1200px] mx-auto flex flex-wrap justify-center items-center gap-x-8 md:gap-x-16 gap-y-12 md:gap-y-20 relative z-10">
+      <div className="max-w-[1200px] mx-auto flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-8 md:gap-x-16 gap-y-6 sm:gap-y-10 md:gap-y-20 relative z-10">
         {SKILLS.map((skill, index) => {
           const isLarge = index % 4 === 0;
           const isMedium = index % 4 === 1 || index % 4 === 2;
-          const sizeClass = isLarge ? 'text-5xl md:text-8xl' : (isMedium ? 'text-3xl md:text-5xl' : 'text-xl md:text-3xl');
+          const sizeClass = isLarge
+            ? 'text-2xl sm:text-4xl md:text-5xl lg:text-8xl'
+            : (isMedium
+              ? 'text-xl sm:text-2xl md:text-3xl lg:text-5xl'
+              : 'text-base sm:text-lg md:text-xl lg:text-3xl');
           const isFilled = index % 5 === 0;
 
           return (
@@ -128,12 +135,12 @@ const FloatingSkills = () => {
 
                 {/* Tooltip */}
                 <div
-                  className="skill-tooltip absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-44 p-3 bg-zinc-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible flex flex-col items-center pointer-events-none z-50 text-center"
+                  className="skill-tooltip absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-36 sm:w-44 p-2 sm:p-3 bg-zinc-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible flex flex-col items-center pointer-events-none z-50 text-center"
                   style={{ transformOrigin: 'bottom center', transform: 'scale(0.9) translateY(0)' }}
                   role="tooltip"
                 >
-                  <div className="text-sm font-bold text-white mb-1 font-sans">{skill.fullName}</div>
-                  <div className={`text-xs font-bold uppercase tracking-wider ${getCategoryColor(skill.category)}`}>
+                  <div className="text-xs sm:text-sm font-bold text-white mb-1 font-sans">{skill.fullName}</div>
+                  <div className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider ${getCategoryColor(skill.category)}`}>
                     {skill.category}
                   </div>
                   <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-zinc-900" />
@@ -145,11 +152,11 @@ const FloatingSkills = () => {
       </div>
 
       {/* Category legend */}
-      <div className="mt-16 flex flex-wrap justify-center gap-6 text-xs uppercase tracking-wider relative z-10">
-        <div className="flex items-center gap-2"><span className="w-2 h-2 bg-accent rounded-full" /> Language</div>
-        <div className="flex items-center gap-2"><span className="w-2 h-2 bg-accent-2 rounded-full" /> Frontend</div>
-        <div className="flex items-center gap-2"><span className="w-2 h-2 bg-green-400 rounded-full" /> Backend</div>
-        <div className="flex items-center gap-2"><span className="w-2 h-2 bg-orange-400 rounded-full" /> Tool</div>
+      <div className="mt-10 sm:mt-16 flex flex-wrap justify-center gap-4 sm:gap-6 text-[10px] sm:text-xs uppercase tracking-wider relative z-10">
+        <div className="flex items-center gap-1.5 sm:gap-2"><span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full" /> Language</div>
+        <div className="flex items-center gap-1.5 sm:gap-2"><span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent-2 rounded-full" /> Frontend</div>
+        <div className="flex items-center gap-1.5 sm:gap-2"><span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full" /> Backend</div>
+        <div className="flex items-center gap-1.5 sm:gap-2"><span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-400 rounded-full" /> Tool</div>
       </div>
     </section>
   );

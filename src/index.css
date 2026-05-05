@@ -12,6 +12,8 @@
 @layer base {
   body {
     @apply bg-bg text-[#F5F5F5] antialiased;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
   }
 
   /* Accessible focus styles */
@@ -30,6 +32,22 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+  }
+
+  /* Safe area for notched devices (iPhone X+) */
+  html {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  /* Ensure images never overflow container */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Better tap highlighting on mobile */
+  a, button {
+    -webkit-tap-highlight-color: rgba(34, 211, 238, 0.1);
   }
 }
 
@@ -52,7 +70,12 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
+}
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
 }
 ::-webkit-scrollbar-track {
   background: #050505;

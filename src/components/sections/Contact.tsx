@@ -55,75 +55,75 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-32 md:py-48 px-6 md:px-12 relative z-10 border-t border-white/5"
+      className="py-20 sm:py-32 md:py-48 px-4 sm:px-6 md:px-12 relative z-10 border-t border-white/5"
       aria-label="Contact"
     >
-      <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-12 items-center">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-8 sm:gap-12 items-center">
         {/* Left — CTA text */}
         <div className="col-span-12 lg:col-span-6">
-          <h2 className="text-5xl md:text-7xl font-display font-black leading-[0.9] tracking-tighter mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-black leading-[0.9] tracking-tighter mb-6 sm:mb-8">
             LET&apos;S BUILD<br />
             SOMETHING<br />
             <span className="text-accent-2">TOGETHER.</span>
           </h2>
-          <p className="text-xl text-white/60 font-light mb-12 max-w-md leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/60 font-light mb-8 sm:mb-12 max-w-md leading-relaxed">
             Hiện tại mình đang tìm kiếm cơ hội Intern/Fresher. Nếu bạn có dự án hay cơ hội phù hợp, hãy liên hệ nhé!
           </p>
 
           {/* Contact info */}
-          <div className="space-y-4 mb-8">
-            <a href={`mailto:${PERSONAL_INFO.email}`} className="flex items-center gap-3 text-white/60 hover:text-accent transition-colors hover-target">
-              <Mail size={18} />
-              <span>{PERSONAL_INFO.email}</span>
+          <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+            <a href={`mailto:${PERSONAL_INFO.email}`} className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-white/60 hover:text-accent transition-colors hover-target">
+              <Mail size={16} className="flex-shrink-0" />
+              <span className="truncate">{PERSONAL_INFO.email}</span>
             </a>
-            <a href={`tel:${PERSONAL_INFO.phone}`} className="flex items-center gap-3 text-white/60 hover:text-accent transition-colors hover-target">
-              <Phone size={18} />
+            <a href={`tel:${PERSONAL_INFO.phone}`} className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-white/60 hover:text-accent transition-colors hover-target">
+              <Phone size={16} className="flex-shrink-0" />
               <span>{PERSONAL_INFO.phone}</span>
             </a>
-            <div className="flex items-center gap-3 text-white/60">
-              <MapPin size={18} />
+            <div className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-white/60">
+              <MapPin size={16} className="flex-shrink-0" />
               <span>{PERSONAL_INFO.location}</span>
             </div>
           </div>
 
           {/* Social links */}
-          <div className="flex gap-4">
+          <div className="flex gap-3 sm:gap-4">
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all hover-target"
+              className="w-10 h-10 sm:w-12 sm:h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all hover-target"
               aria-label="GitHub profile"
             >
-              <Github size={20} />
+              <Github size={18} />
             </a>
             <a
               href={PERSONAL_INFO.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-[#1877f2] hover:border-[#1877f2] transition-all hover-target"
+              className="w-10 h-10 sm:w-12 sm:h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-[#1877f2] hover:border-[#1877f2] transition-all hover-target"
               aria-label="Facebook profile"
             >
-              <Facebook size={20} />
+              <Facebook size={18} />
             </a>
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
-              className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-accent hover:border-accent hover:text-black transition-all hover-target"
+              className="w-10 h-10 sm:w-12 sm:h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-accent hover:border-accent hover:text-black transition-all hover-target"
               aria-label="Send email"
             >
-              <Mail size={20} />
+              <Mail size={18} />
             </a>
           </div>
         </div>
 
         {/* Right — Contact form */}
-        <div className="col-span-12 lg:col-span-5 lg:col-start-8 mt-16 md:mt-0">
-          <div className="bg-surface/50 p-8 md:p-12 border border-white/10 backdrop-blur-md relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px]" aria-hidden="true" />
+        <div className="col-span-12 lg:col-span-5 lg:col-start-8 mt-8 sm:mt-12 lg:mt-0">
+          <div className="bg-surface/50 p-5 sm:p-8 md:p-12 border border-white/10 backdrop-blur-md relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 sm:w-64 h-40 sm:h-64 bg-accent/5 rounded-full blur-[60px] sm:blur-[80px]" aria-hidden="true" />
 
-            <form className="relative z-10 flex flex-col gap-8" onSubmit={handleSubmit} noValidate>
+            <form className="relative z-10 flex flex-col gap-5 sm:gap-8" onSubmit={handleSubmit} noValidate>
               <div>
-                <label htmlFor="contact-name" className="block text-xs uppercase tracking-widest text-white/40 mb-2">
+                <label htmlFor="contact-name" className="block text-[10px] sm:text-xs uppercase tracking-widest text-white/40 mb-1.5 sm:mb-2">
                   Họ tên
                 </label>
                 <input
@@ -133,11 +133,11 @@ const Contact = () => {
                   value={formData.name}
                   onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   placeholder="Nguyễn Văn A"
-                  className="w-full bg-transparent border-b border-white/20 py-4 font-display outline-none focus:border-accent transition-colors placeholder:text-white/20 text-lg hover-target"
+                  className="w-full bg-transparent border-b border-white/20 py-3 sm:py-4 font-display outline-none focus:border-accent transition-colors placeholder:text-white/20 text-base sm:text-lg hover-target"
                 />
               </div>
               <div>
-                <label htmlFor="contact-email" className="block text-xs uppercase tracking-widest text-white/40 mb-2">
+                <label htmlFor="contact-email" className="block text-[10px] sm:text-xs uppercase tracking-widest text-white/40 mb-1.5 sm:mb-2">
                   Email
                 </label>
                 <input
@@ -147,28 +147,28 @@ const Contact = () => {
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   placeholder="email@example.com"
-                  className="w-full bg-transparent border-b border-white/20 py-4 font-display outline-none focus:border-accent transition-colors placeholder:text-white/20 text-lg hover-target"
+                  className="w-full bg-transparent border-b border-white/20 py-3 sm:py-4 font-display outline-none focus:border-accent transition-colors placeholder:text-white/20 text-base sm:text-lg hover-target"
                 />
               </div>
               <div>
-                <label htmlFor="contact-message" className="block text-xs uppercase tracking-widest text-white/40 mb-2">
+                <label htmlFor="contact-message" className="block text-[10px] sm:text-xs uppercase tracking-widest text-white/40 mb-1.5 sm:mb-2">
                   Tin nhắn
                 </label>
                 <textarea
                   id="contact-message"
-                  rows={4}
+                  rows={3}
                   required
                   value={formData.message}
                   onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                   placeholder="Nội dung tin nhắn..."
-                  className="w-full bg-transparent border-b border-white/20 py-4 font-display outline-none focus:border-accent transition-colors placeholder:text-white/20 text-lg resize-none hover-target"
+                  className="w-full bg-transparent border-b border-white/20 py-3 sm:py-4 font-display outline-none focus:border-accent transition-colors placeholder:text-white/20 text-base sm:text-lg resize-none hover-target"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={formStatus === 'sending'}
-                className="group mt-4 px-8 py-4 bg-white text-black font-bold font-display tracking-widest uppercase flex items-center justify-between hover:bg-accent transition-colors duration-500 hover-target disabled:opacity-50"
+                className="group mt-2 sm:mt-4 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-bold font-display text-sm sm:text-base tracking-widest uppercase flex items-center justify-between hover:bg-accent transition-colors duration-500 hover-target disabled:opacity-50"
               >
                 <span>
                   {formStatus === 'success' && 'Đã gửi thành công!'}
@@ -177,11 +177,11 @@ const Contact = () => {
                   {formStatus === 'idle' && 'Gửi tin nhắn'}
                 </span>
                 {formStatus === 'success' ? (
-                  <CheckCircle size={18} className="text-green-600" />
+                  <CheckCircle size={16} className="text-green-600" />
                 ) : formStatus === 'error' ? (
-                  <AlertCircle size={18} className="text-red-600" />
+                  <AlertCircle size={16} className="text-red-600" />
                 ) : (
-                  <Send size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                  <Send size={16} className="transform group-hover:translate-x-1 transition-transform" />
                 )}
               </button>
             </form>
