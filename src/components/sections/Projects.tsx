@@ -42,15 +42,27 @@ const Projects = () => {
                   >
                     <Github size={22} />
                   </a>
-                  <a
-                    href={proj.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 rounded-full bg-accent text-black flex items-center justify-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200 hover:scale-110"
-                    aria-label={`View ${proj.title}`}
-                  >
-                    <ArrowUpRight strokeWidth={3} size={22} />
-                  </a>
+                  {proj.liveUrl ? (
+                    <a
+                      href={proj.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-14 h-14 rounded-full bg-accent text-black flex items-center justify-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200 hover:scale-110"
+                      aria-label={`Live demo for ${proj.title}`}
+                    >
+                      <ArrowUpRight strokeWidth={3} size={22} />
+                    </a>
+                  ) : (
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-14 h-14 rounded-full bg-white/20 text-white flex items-center justify-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200 hover:scale-110"
+                      aria-label={`View ${proj.title} on GitHub`}
+                    >
+                      <ArrowUpRight strokeWidth={3} size={22} />
+                    </a>
+                  )}
                 </div>
               </div>
 

@@ -7,6 +7,7 @@ export interface Project {
   tech: string[];
   highlights: string[];
   github: string;
+  liveUrl?: string;
   image: string;
   gridClass: string;
 }
